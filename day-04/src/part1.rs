@@ -31,14 +31,10 @@ pub fn process(input: &str) -> Result<String, Box<dyn std::error::Error>> {
     let lines = input.trim().lines().collect::<Vec<&str>>();
     let mut word_grid = HashMap::<Coordinate, char>::new();
     let mut x_words = Vec::<Coordinate>::new();
-    let mut a_words = Vec::<Coordinate>::new();
 
     for (height, line) in lines.iter().enumerate() {
         for (width, char) in line.chars().enumerate() {
             word_grid.insert((width as i32, height as i32), char);
-            if char == 'A' {
-                a_words.push((width as i32, height as i32));
-            }
             if char == 'X' {
                 x_words.push((width as i32, height as i32));
             }
